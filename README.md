@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+PromptPro is a production-grade multimodal analysis engine designed to bridge the gap between visual references and AI synthesis. By leveraging the deep reasoning of Codex 5.3 and the visual intelligence of Nano Banana Pro (Gemini 3 Pro Image), PromptPro decomposes uploaded imagery and video into technical architectural data—including lighting physics, camera motion, and subject consistency .
 
-# Run and deploy your AI Studio app
+The platform provides reproduction-ready JSON prompts optimized for Google Veo 3.1, enabling one-click workflows for professional creators and developers . Built on the Google AI Studio stack with a high-thinking budget of 32,768 tokens, it ensures pixel-perfect adherence to the original "vibe" while suggesting intelligent cinematic variations .
 
-This contains everything you need to run your app locally.
+3. Key Feature Highlights (Markdown List)
+Visual Reverse-Engineering: Extract 25+ subject and environmental attributes from any visual seed.
 
-View your app in AI Studio: https://ai.studio/apps/95f770d3-888a-4c83-9640-fb5257516967
+Structured JSON Output: Industry-standard schema for shot_framing, audio_beats, and lighting_model .
 
-## Run Locally
+Video Prompting for Veo 3.1: Dedicated pipelines for text-to-video and image-to-video synthesis .
 
-**Prerequisites:**  Node.js
+Agentic Logic: Powered by Codex 5.3 for precise instruction following and secure backend orchestration .
 
+Integrated Monetization: Usage-based credit system with Stripe integration for Pro and Ultra tiers .
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Best Practices for Your Repo
+Classify with Topics: Add tags like codex-5-3, nano-banana-pro, veo-3-1, vibe-coding, and shadcn-ui to increase visibility.
+
+Secure Your Keys: Mention in your setup instructions that users must provide their own Google Gemini and OpenAI API keys via environment variables .
