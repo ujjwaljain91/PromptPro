@@ -30,7 +30,14 @@ export const generatePrompt = async (
   const isThinking = filters.useThinking;
   
   // Initialize GenAI
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Check for API key in env or localStorage
+  const apiKey = process.env.API_KEY || localStorage.getItem('GEMINI_API_KEY');
+  
+  if (!apiKey) {
+    throw new Error("API Key is missing. Please add your Gemini API Key in settings.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
   
   // Prepare image/video part
   const mediaPart = await fileToGenerativePart(file);

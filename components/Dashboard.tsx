@@ -9,6 +9,7 @@ import { Loader2, Sparkles, MessageSquare, Zap } from 'lucide-react';
 import { Logo } from './Logo';
 import { FeedbackModal } from './FeedbackModal';
 import { PricingModal } from './PricingModal';
+import { ApiKeyModal } from './ApiKeyModal';
 
 const DEFAULT_FILTERS: FilterState = {
   style: 'Cinematic',
@@ -35,6 +36,7 @@ export const Dashboard = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [isPricingOpen, setIsPricingOpen] = useState(false);
+  const [isApiKeyOpen, setIsApiKeyOpen] = useState(false);
   const [tokens, setTokens] = useState(5);
 
   React.useEffect(() => {
@@ -51,6 +53,12 @@ export const Dashboard = () => {
       toast.error('Payment canceled.');
       setIsPricingOpen(true);
       window.history.replaceState({}, '', window.location.pathname);
+    }
+
+    // Check for API key on load
+    const apiKey = localStorage.getItem('GEMINI_API_KEY');
+    if (!process.env.API_KEY && !apiKey) {
+      setTimeout(() => setIsApiKeyOpen(true), 1000);
     }
   }, []);
 
@@ -213,6 +221,7 @@ export const Dashboard = () => {
 
         <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
         <PricingModal isOpen={isPricingOpen} onClose={() => setIsPricingOpen(false)} />
+        <ApiKeyModal isOpen={isApiKeyOpen} onClose={() => setIsApiKeyOpen(false)} />
 
         <div className="flex-1 overflow-y-auto p-6 lg:p-8 custom-scrollbar bg-white/50">
           <div className="max-w-[1600px] mx-auto grid grid-cols-1 xl:grid-cols-12 gap-8 h-full">
