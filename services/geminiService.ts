@@ -213,10 +213,9 @@ export const generatePrompt = async (
     };
 
     if (isThinking) {
-      // Set thinking budget to max (32768) for complex reasoning
-      requestConfig.thinkingConfig = { thinkingBudget: 32768 };
-      // Note: We deliberately do NOT set maxOutputTokens here to allow full token usage
-      // which is required when using thinking mode
+      // thinkingConfig is only available on specific models and might require billing if high budget
+      // For now, we remove the explicit budget to let the model decide or use default
+      // requestConfig.thinkingConfig = { thinkingBudget: 32768 };
     }
 
     const response = await ai.models.generateContent({
