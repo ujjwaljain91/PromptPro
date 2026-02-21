@@ -1,0 +1,5 @@
+{
+  "name": "PromptPro",
+  "description": "A production-grade prompt engineering platform that transforms media inputs into high-fidelity generation prompts for Veo, Midjourney, and Stable Diffusion.",
+  "requestFramePermissions": []
+}
